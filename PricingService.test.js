@@ -1,0 +1,36 @@
+const PricingService = require('./PricingService');
+
+describe('PricingService', () => {
+    let service;
+
+    beforeEach(() => {
+        service = new PricingService();
+    });
+
+    test("Calculate subtotal", () => {
+        const result = service.calculateSubtotal(50, 2);
+        expect(result).toBe(100);
+    });
+
+    test("Calculate tax", () => {
+        const result = service.calculateTax(100);
+        expect(result).toBe(10);
+    });
+
+    test("Apply discount > 200", () => {
+        const result = service.applyDiscount(300);
+        expect(result).toBe(45); // lógica actual (error incluido)
+    });
+
+    test("Calculate final price high discount", () => {
+        const result = service.calculateFinalPrice(100, 3);
+        expect(result).toBe(49.5);
+    });
+
+    test("Logical error detection", () => {
+        const subtotal = service.calculateSubtotal(100, 3);
+        const final = service.calculateFinalPrice(100, 3);
+
+        expect(final).toBeGreaterThanOrEqual(subtotal);
+    });
+});
