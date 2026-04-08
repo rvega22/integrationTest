@@ -14,7 +14,7 @@ class OrderController {
 
       return {
         status: 'success',
-        data: order.data
+        data: order
       };
 
     } catch (error) {

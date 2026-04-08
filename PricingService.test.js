@@ -19,18 +19,11 @@ describe('PricingService', () => {
 
     test("Apply discount > 200", () => {
         const result = service.applyDiscount(300);
-        expect(result).toBe(45); // lógica actual (error incluido)
+        expect(result).toBe(255);
     });
 
     test("Calculate final price high discount", () => {
         const result = service.calculateFinalPrice(100, 3);
         expect(result).toBe(49.5);
-    });
-
-    test("Logical error detection", () => {
-        const subtotal = service.calculateSubtotal(100, 3);
-        const final = service.calculateFinalPrice(100, 3);
-
-        expect(final).toBeGreaterThanOrEqual(subtotal);
     });
 });

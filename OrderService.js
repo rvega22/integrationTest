@@ -17,13 +17,14 @@ class OrderService {
 
     const total = this.pricing.calculateFinalPrice(price, quantity);
 
-    this.inventory.reduceStock(productId, quantity);
     const payment = await this.payment.processPayment(total);
 
     if (payment.status !== 'success') {
       throw new Error('Payment failed');
     }
 
+    this.inventory.reduceStock(productId, quantity);
+    
     await this.notification.sendNotification(userId, 'Order created');
 
     return {

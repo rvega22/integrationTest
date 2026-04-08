@@ -8,8 +8,8 @@ class PricingService {
   }
 
   applyDiscount(amount) {
-    if (amount > 200) return amount * 0.15;
-    if (amount > 100) return amount * 0.1;
+    if (amount > 200) return amount - (amount * 0.15);
+    if (amount > 100) return amount - (amount * 0.1);
     return amount;
   }
 
