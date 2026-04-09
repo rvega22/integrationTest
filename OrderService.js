@@ -28,7 +28,7 @@ class OrderService {
     await this.notification.sendNotification(userId, 'Order created');
 
     return {
-      orderId: Math.random(),
+      orderId: Math.floor(Math.random() * 10000),
       total,
       transactionId: payment.transactionId
     };

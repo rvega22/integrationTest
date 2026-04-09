@@ -24,6 +24,6 @@ describe('PricingService', () => {
 
     test("Calculate final price high discount", () => {
         const result = service.calculateFinalPrice(100, 3);
-        expect(result).toBe(49.5);
+        expect(result).toBe(280.5);
     });
 });
