@@ -3,8 +3,8 @@ const OrderController = require('./OrderController');
 // con los diferentes módulos
 
 test('Top-Down: fase 1', async () => {
-
-  // Uso de stub de OrderService para simular el comportamiento real
+  // ---------------------- Fase 1 ----------------------
+  // Uso de stub de OrderService
   const orderServiceStub = {
     createOrder: async () => ({
       orderId: 1,
@@ -25,11 +25,11 @@ test('Top-Down: fase 1', async () => {
 
   console.log(result);
 
-  // Validaciones con expect y matchers que ya han usado previamente
+  // Validaciones
   expect(result.status).toBe('success');
   expect(result.data).toBeDefined();
 
-  // A partir de aquí comienzan con el Nivel 2
+  // ---------------------- Fase 2 ----------------------
   // Agrego ejemplo del stub del users
 
   // Aquí deben completar los demás stubs:
@@ -42,5 +42,11 @@ test('Top-Down: fase 1', async () => {
   // OrderService, en este caso se nombra orderService3 porque ya se ha
   // usado previamente un orderService y un orderService 2 en niveles previos
 
+    // ---------------------- Fase 3 ----------------------
+
+
   //Terminando nivel 3, comienzan aquí nivel 4 en donde NO se usa ningún stub
+
+    // ---------------------- Fase 4 ----------------------
+
 });
